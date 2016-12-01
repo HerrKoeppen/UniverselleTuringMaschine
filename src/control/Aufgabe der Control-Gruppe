@@ -1,0 +1,4 @@
+Das Package Control enthält alle Inhalte zur Kontrolle des Projekts.
+Die Kontrolle mittelt zwischen dem View und dem Model, kennt beide anderen
+Packages. Änderungen am Model, die durch den View verursacht werden, werden
+durch den Control vorgenommen.

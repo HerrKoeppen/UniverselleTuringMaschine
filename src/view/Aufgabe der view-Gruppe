@@ -1,0 +1,6 @@
+Erzeugt das graphische User-Interface.
+Wie soll der Benutzer die UTM sehen, welche Eingabefenster
+und Menüdialoge soll er haben, welche Buttons?
+Starke Kopplung an die model und control-Gruppe!
+
+JFrame-Formulare benutzen!
