@@ -1,0 +1,12 @@
+https://github.com/HerrKoeppen/UniverselleTuringMaschine/blob/master/src/MVC_Info_und_SCRUM_Info/MVC.png
+
+Tag 1:
+Eingabe/Ausgabe Band
+Einlesen von Textdateien
+Einlesen von Turingmaschinen
+Syntax für Textdateien
+
+Textdateien-Gruppe HC, JB, EK
+"laufen" der Turingmaschine HK, NK, MP, NJ
+EIngabe/Ausgabe DG, FK, NBo
+Grafik (Turingband) KJ, MR, KR, KK

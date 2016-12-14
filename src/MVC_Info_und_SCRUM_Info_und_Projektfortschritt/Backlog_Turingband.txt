@@ -1,0 +1,17 @@
+
+Gruppe: Turingband	
+	    Denis Gördük, Friedrich Kempe, Natalie Boos
+
+
+Aufgabe/Ziel:
+
+	- Implementierung des Turingbands
+	- Einlesen und Weiterleitung von Zeichen(-ketten)
+	
+	
+Vorgehensweise:
+
+	- Erstellung einer ArrayList
+	- Für korrektes Einlesen und Weiterleiten sorgen (kurzen Online-Crashkurs dazu)
+	
+Stand: 14.12.16

@@ -1,0 +1,22 @@
+Backlogs der Gruppen
+
+Textdateien-Gruppe
+	Syntax der Textdatei
+	Implementierung des Einlesens
+
+Turingmaschine
+	Andere Realisierungen betrachten und verstehen
+	Verarbeitung von eingabe zur Turingmaschine
+	
+	
+
+Turingband
+
+
+Grafik
+	Aufbau grafische Oberfläche
+	Programmierung der Knöpfe
+	Programmierung der Felder
+	Programmierung der Reiter
+	Programmierung/darstellund der Ausgabe
+

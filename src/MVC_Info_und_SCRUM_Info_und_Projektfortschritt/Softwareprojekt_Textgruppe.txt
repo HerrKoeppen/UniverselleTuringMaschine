@@ -1,0 +1,11 @@
+Syntax der Textdatei
+Implementierung des Einlesens
+
+einen Tupel indem alle Angaben definiert sind
+-> Eingabealphabet ({a, c, d, f...})
+-> Zustandsmenge ({q0, q1,q2, q3..})
+-> Bandalphabet ({$, a, b c..})
+-> partielle Überführungsfunktion
+-> Anfangszustand	({q0})
+-> Bandvorbelegungszeichen ({$})
+-> Menge der Endzustände ({q3, q7...})
