@@ -6,13 +6,13 @@ Textdateien-Gruppe
 
 Turingmaschine
 	Andere Realisierungen betrachten und verstehen
+	Festlegung von Klassen und Methoden
 	Verarbeitung von eingabe zur Turingmaschine
-	
-	
 
 Turingband
-
-
+	Implementierung des Turingbands
+	Einlesen und Weiterleitung von Zeichen(-ketten)
+	
 Grafik
 	Aufbau grafische Oberfläche
 	Programmierung der Knöpfe
