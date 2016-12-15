@@ -5,11 +5,15 @@
  */
 package view;
 
+ 
+
 /**
  *
  * @author kiara.jung
  */
 public class NewJFrame extends javax.swing.JFrame {
+    
+
 
     /**
      * Creates new form NewJFrame
@@ -27,10 +31,28 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrameFileChooser = new javax.swing.JFrame();
         jFileChooser1 = new javax.swing.JFileChooser();
         TextFeld1 = new javax.swing.JTextField();
         EingabeB = new javax.swing.JButton();
         WahlTuringB = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jFrameFileChooserLayout = new javax.swing.GroupLayout(jFrameFileChooser.getContentPane());
+        jFrameFileChooser.getContentPane().setLayout(jFrameFileChooserLayout);
+        jFrameFileChooserLayout.setHorizontalGroup(
+            jFrameFileChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameFileChooserLayout.createSequentialGroup()
+                .addComponent(jFileChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jFrameFileChooserLayout.setVerticalGroup(
+            jFrameFileChooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameFileChooserLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         jFileChooser1.getAccessibleContext().setAccessibleParent(WahlTuringB);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,6 +65,11 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         WahlTuringB.setText("Wähle Turing-Maschine");
+        WahlTuringB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WahlTuringBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,9 +103,13 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EingabeBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EingabeBActionPerformed
-        String wort;
+
         wort = TextFeld1.getText();
     }//GEN-LAST:event_EingabeBActionPerformed
+
+    private void WahlTuringBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WahlTuringBActionPerformed
+         jFrameFileChooser.setVisible(true);
+    }//GEN-LAST:event_WahlTuringBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,5 +151,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TextFeld1;
     private javax.swing.JButton WahlTuringB;
     private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JFrame jFrameFileChooser;
     // End of variables declaration//GEN-END:variables
+   //Eigene Variablen:
+   public String wort;
 }
