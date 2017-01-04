@@ -11,7 +11,9 @@ import java.util.ArrayList;
 
 
 public class Texteinlesen {
-    static String tupelGanz;
+    String tupelGanz;
+    String[] pueTeile;
+    String[] tupelTeile;
     ArrayList<String> EA;   //Eingabealphabet
     ArrayList<String> Z;    //Zustandsmenge
     ArrayList<String> BA;   //Bandalphabet
@@ -43,12 +45,12 @@ public class Texteinlesen {
         }
     }
     
-    public static void AngabenInFinalenArraySpeichern(){
+    public void AngabenInArraySpeichern(){
         tupelTeile = tupelGanz.split("/.../");    //tupelTeile ist ein Array in dem der ganze Tupel steht, aber die Angaben in jeweils einem Feld sind(Die 7 angaben sind noch nicht weiter unterteilt)
         for(int teile=0; teile<8; teile++){                
             String[] einzelAngabe = tupelTeile[teile].split(",");//die Angaben werden in einzelteile Unterteilt
             for (int i=0; i<einzelAngabe.length; i++){           //die Angaben werden in die jeweiligen Arrays "gepackt"
-                if(teile==0){                  
+                if(teile==0){                                    //sobald Problem geöst können die Verzweigungen in switch umgewandelt werden können                 
                     EZ.add(einzelAngabe[i]);
                 } 
                 else if(teile==1){
