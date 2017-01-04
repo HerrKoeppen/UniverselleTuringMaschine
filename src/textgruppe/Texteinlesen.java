@@ -43,13 +43,39 @@ public class Texteinlesen {
         }
     }
     
-    public static void tupelTeilen(){
-        if(tupelGanz != null) {
-            String[] einzelneAngaben = tupelGanz.split("/.../"); //einzelneAngaben ist nur local
+    public static void AngabenInFinalenArraySpeichern(){
+        tupelTeile = tupelGanz.split("/.../");    //tupelTeile ist ein Array in dem der ganze Tupel steht, aber die Angaben in jeweils einem Feld sind(Die 7 angaben sind noch nicht weiter unterteilt)
+        for(int teile=0; teile<8; teile++){                
+            String[] einzelAngabe = tupelTeile[teile].split(",");//die Angaben werden in einzelteile Unterteilt
+            for (int i=0; i<einzelAngabe.length; i++){           //die Angaben werden in die jeweiligen Arrays "gepackt"
+                if(teile==0){                  
+                    EZ.add(einzelAngabe[i]);
+                } 
+                else if(teile==1){
+                    MZ.add(einzelAngabe[i]);
+                }
+                else if(teile==2){
+                    BA.add(einzelAngabe[i]);
+                }
+                else if(teile==4){
+                    for (int b = 0; b<einzelAngabe.length; b++) {
+                        pueTeile[b] = einzelAngabe[i];
+                    }
+                }
+                else if(teile==5){
+                     AZ.add(einzelAngabe[i]);
+                }
+                else if(teile==6){
+                    BZ.add(einzelAngabe[i]);
+                }
+                else if(teile==7){
+                     EZ.add(einzelAngabe[i]);
+                }
+                else{
+                    System.out.println("FEHLER!!!!!!!!");    
+                }
+            }
         }
-    }
-    
-    public static void inEinzelangabenTeilen(){
     }
 
 //public static void main(String[] args) throws IOException{
