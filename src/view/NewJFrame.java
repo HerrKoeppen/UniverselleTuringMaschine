@@ -142,8 +142,15 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void WahlTuringBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WahlTuringBActionPerformed
          jFileChooser1.showOpenDialog(null);
-//        dateiPfad = jFileChooser1.getSelectedFile().getAbsolutePath();
-   //    System.out.println(dateiPfad);
+         
+         int rueckgabeWert = jFileChooser1.showOpenDialog(null);
+         
+         if(rueckgabeWert == jFileChooser1.APPROVE_OPTION)
+         {
+         dateiPfad = jFileChooser1.getSelectedFile().getAbsolutePath();
+        System.out.println(dateiPfad);
+        jTextFieldTuring.setText(jFileChooser1.getSelectedFile().getName()) ;
+         }
     }//GEN-LAST:event_WahlTuringBActionPerformed
 
     private void jTextFieldTuringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTuringActionPerformed
