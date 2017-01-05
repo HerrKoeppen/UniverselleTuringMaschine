@@ -1,0 +1,30 @@
+
+    HashMap hashUebergang = new HashMap();
+    private void erzeugeHashmap()
+    {
+        Iterator<String> it = arrayListUebergangsfunktion.iterator();
+        while(it.hasNext())
+        {
+            String uebergangsfunktion = it.next();
+            String[] parts = uebergangsfunktion.split("|");
+            String part1 = parts[0];
+            String part2 = parts[1];
+            hashUebergang.put(part1|part2);
+            
+        }
+    private void uebergang(hashUebergang)
+    {
+    	while(laufen)
+	{
+                String schluessel = aktuellerZustand + "," + aktuellesBandsymbol;
+		String uebergangAlleInformationen = hashUebergang.get(schluessel);
+		String[] uebergang = uebergangAlleInformationen.split(,);
+		String schrBandsymbol = uebergang[0];
+                schreiben(schrBandsymbol);
+		String neuerZustand = uebergang[1];
+                uebergangZustand(neuerZustand);
+		String kopfrichtung = uebergang[2];
+                kopfbewegung(kopfrichtung);
+	}	    
+    }
+    
