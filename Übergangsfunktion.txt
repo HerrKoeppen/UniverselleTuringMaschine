@@ -1,4 +1,13 @@
 
+    String aktuellerZustand;
+    
+    private void setAnfangszustand()
+    {
+    	aktuellerZustand = arrayListAnfangszustand.get(0);
+    }
+    	
+    	
+    
     HashMap hashUebergang = new HashMap();
     private void erzeugeHashmap()
     {
@@ -14,6 +23,7 @@
         }
     private void uebergang(hashUebergang)
     {
+    	String zustand = anfangszustand;
     	while(laufen)
 	{
                 String schluessel = aktuellerZustand + "," + aktuellesBandsymbol;
@@ -21,10 +31,11 @@
 		String[] uebergang = uebergangAlleInformationen.split(,);
 		String schrBandsymbol = uebergang[0];
                 schreiben(schrBandsymbol);
-		String neuerZustand = uebergang[1];
-                uebergangZustand(neuerZustand);
-		String kopfrichtung = uebergang[2];
+		String kopfrichtung = uebergang[1];
                 kopfbewegung(kopfrichtung);
+		String neuerZustand = uebergang[2];
+                uebergangZustand(neuerZustand);
 	}	    
     }
-    
+    private  void uebergangzustand(neuerZustand);
+             String  aktuellerZustand = neuerzustand;
