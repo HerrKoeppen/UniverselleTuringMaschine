@@ -8,12 +8,12 @@ import textgruppe.Texteinlesen;
 public class Turingband 
 {
     private ArrayList<String> band;
-    private String kellerzeichen= "#";
+    private String kellerzeichen;
     private String eingabe;
     private int index = 0;
     
             
-    public Turingband()
+    public Turingband(String bandvorbelegungszeichen)
     {
         band = new ArrayList<String>();
         band.set(index, kellerzeichen);
@@ -21,9 +21,9 @@ public class Turingband
 
     public void zeichenHinzufuegen(String eingabe)
     {        
-        for (String dateien : platzhalter.BA)
+        for (String zeichen : platzhalter.BA)
         {
-            if (eingabe.equals(dateien))
+            if (eingabe.equals(zeichen))
             {
                 band.set(index, eingabe);
             }
@@ -34,11 +34,26 @@ public class Turingband
     {
         if (richtung.toUpperCase().equals("R"))
         {
-            index = index + 1;   
+            index = index + 1;
+            if (index == band.size())
+            {
+                band.add(kellerzeichen);
+            }
         }
         else if (richtung.toUpperCase().equals("L")) 
         {
-            index = index - 1; 
+            index = index - 1;
+            if (index == -1)
+            {
+                new ArrayList<String> neuesBand;
+                neuesBand.add(kellerzeichen);
+                for (String zeichen : band)
+                {
+                    neuesBand.add(zeichen);
+                }
+                index = 0;
+                band = neuesBand;
+            }
         }
     }
     
