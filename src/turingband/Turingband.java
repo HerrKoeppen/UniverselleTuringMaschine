@@ -3,35 +3,38 @@ package turingband;
 
 import java.util.ArrayList;
 import java.io.*;
+import textgruppe.Texteinlesen;
 
 public class Turingband 
 {
-    private ArrayList<String> zeichen;
+    private ArrayList<String> keller;
     private String kellerzeichen= "#";
     private String eingabe;
-    public Turingband tb = new Turingband();
     
-    public static void main(String[] args)
-    {
-
-    }
             
     public Turingband()
     {
-        zeichen = new ArrayList<String>();
-        zeichen.add(kellerzeichen);
+        keller = new ArrayList<String>();
+        keller.add(kellerzeichen);
     }
 
     public void zeichenHinzufuegen(String eingabe)
     {        
-        zeichen.add(eingabe);
+        for (String dateien : platzhalter.BA)
+        {
+            if (eingabe.equals(dateien))
+            {
+                keller.add(eingabe);
+            }
+        }
     }
 
-//    public void test(String eingabe)
-//    {
-//        String[] result = eingabe.split(eingabe);
-//        for (int x=0; x<result.length; x++)
-//            System.out.println(result[x]);
-//    }
+    public void schreibkopfBewegen(String richtung)
+    {
+        if (richtung.toUpperCase().equals("R"))
+        {
+//            keller.next();
+        }
+    }
 }
 
