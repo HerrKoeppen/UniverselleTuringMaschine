@@ -7,6 +7,7 @@ import textgruppe.Texteinlesen;
 
 public class Turingband 
 {
+    private ArrayList<String> neuesBand;
     private ArrayList<String> band;
     private String kellerzeichen;
     private String eingabe;
@@ -46,7 +47,7 @@ public class Turingband
             index = index - 1;
             if (index == -1)
             {
-                new ArrayList<String> neuesBand;
+                neuesBand = new ArrayList<String>();
                 neuesBand.add(kellerzeichen);
                 for (String zeichen : band)
                 {
