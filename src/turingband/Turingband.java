@@ -7,7 +7,7 @@ import textgruppe.Texteinlesen;
 
 public class Turingband 
 {
-    private ArrayList<String> keller;
+    private ArrayList<String> band;
     private String kellerzeichen= "#";
     private String eingabe;
     private int index = 0;
@@ -15,8 +15,8 @@ public class Turingband
             
     public Turingband()
     {
-        keller = new ArrayList<String>();
-        keller.set(index, kellerzeichen);
+        band = new ArrayList<String>();
+        band.set(index, kellerzeichen);
     }
 
     public void zeichenHinzufuegen(String eingabe)
@@ -25,7 +25,7 @@ public class Turingband
         {
             if (eingabe.equals(dateien))
             {
-                keller.set(index, eingabe);
+                band.set(index, eingabe);
             }
         }
     }
@@ -44,7 +44,7 @@ public class Turingband
     
     public String lesen()
     {
-        return keller[index];
+        return band.get(index);
     }
 }
 
