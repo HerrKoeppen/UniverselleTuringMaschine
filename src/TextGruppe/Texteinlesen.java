@@ -11,16 +11,15 @@ import java.util.ArrayList;
 
 
 public class Texteinlesen {
-    String tupelGanz;
-    String[] pueTeile;
-    String[] tupelTeile;
-    ArrayList<String> EA;   //Eingabealphabet
-    ArrayList<String> Z;    //Zustandsmenge
-    ArrayList<String> BA;   //Bandalphabet
-    ArrayList<String[]> UF;    //partielle Überführungsfunktion
-    ArrayList<String> AZ;   //Anfangszustand
-    ArrayList<String> BZ;   //Bandvorbelegungszeichen
-    ArrayList<String> EZ;   //Menge der Endzustände
+    static String tupelGanz;
+    static String[] tupelTeile;
+    static ArrayList<String> EA;   //Eingabealphabet
+    static ArrayList<String> Z;    //Zustandsmenge
+    static ArrayList<String> BA;   //Bandalphabet
+    static ArrayList<String> UF;    //partielle Überführungsfunktion
+    static ArrayList<String> AZ;   //Anfangszustand
+    static ArrayList<String> BZ;   //Bandvorbelegungszeichen
+    static ArrayList<String> EZ;   //Menge der Endzustände
     
     public Texteinlesen(){
         EA = new ArrayList();
@@ -32,7 +31,7 @@ public class Texteinlesen {
         EZ = new ArrayList();
     }
     
-    public void dateiEinlesen(String dateipfad) throws IOException{
+    public static void dateiEinlesen(String dateipfad) throws IOException{
         
         try {
             BufferedReader reader = new BufferedReader(new FileReader(dateipfad));
@@ -45,13 +44,13 @@ public class Texteinlesen {
         }
     }
     
-    public void AngabenInFinalenArraySpeichern(){
+    public static void angabenInArraySpeichern(){
         tupelTeile = tupelGanz.split("/.../");    //tupelTeile ist ein Array in dem der ganze Tupel steht, aber die Angaben in jeweils einem Feld sind(Die 7 angaben sind noch nicht weiter unterteilt)
-        for(int teile=0; teile<8; teile++){                
+        for(int teile=0; teile<7; teile++){                
             String[] einzelAngabe = tupelTeile[teile].split(",");//die Angaben werden in einzelteile Unterteilt
             for (int i=0; i<einzelAngabe.length; i++){           //die Angaben werden in die jeweiligen Arrays "gepackt"
-                if(teile==0){                                    //sobald Problem geöst können die Verzweigungen in switch umgewandelt werden können
-                    EZ.add(einzelAngabe[i]);
+                if(teile==0){                                    //sobald Problem geöst können die Verzweigungen in switch umgewandelt werden können                 
+                    EA.add(einzelAngabe[i]);
                 } 
                 else if(teile==1){
                     Z.add(einzelAngabe[i]);
@@ -59,18 +58,16 @@ public class Texteinlesen {
                 else if(teile==2){
                     BA.add(einzelAngabe[i]);
                 }
-                else if(teile==4){
-                    for (int b = 0; b<einzelAngabe.length; b++) {
-                        pueTeile[b] = einzelAngabe[i];
-                    }
+                else if(teile==3){
+                    UF.add(einzelAngabe[i]);
                 }
-                else if(teile==5){
+                else if(teile==4){
                      AZ.add(einzelAngabe[i]);
                 }
-                else if(teile==6){
+                else if(teile==5){
                     BZ.add(einzelAngabe[i]);
                 }
-                else if(teile==7){
+                else if(teile==6){
                      EZ.add(einzelAngabe[i]);
                 }
                 else{
@@ -80,7 +77,16 @@ public class Texteinlesen {
         }
     }
 
-//public static void main(String[] args) throws IOException{
-//    dateiEinlesen("C:\\Users\\jonathan.brandt\\Desktop\\TEST.txt");
-//}
+public static void main(String[] args) throws IOException{
+    Texteinlesen texteinlesen = new Texteinlesen();
+    texteinlesen.dateiEinlesen("C:\\Users\\Jonathan\\Desktop\\test.txt");    //muss mit korrektem Dateipfad übergeben werden
+    texteinlesen.angabenInArraySpeichern();
+    System.out.println(EA);
+    System.out.println(Z);
+    System.out.println(BA);
+    System.out.println(UF);
+    System.out.println(AZ);
+    System.out.println(BZ);
+    System.out.println(EZ);
+}
 }
