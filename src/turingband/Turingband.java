@@ -16,7 +16,8 @@ public class Turingband
     public Turingband(String bandvorbelegungszeichen)
     {
         band = new ArrayList<String>();
-        band.set(index, kellerzeichen);
+        band.set(index, bandvorbelegungszeichen);
+        kellerzeichen = bandvorbelegungszeichen;
     }
 
     public void zeichenHinzufuegen(String eingabe)
