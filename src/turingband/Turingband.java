@@ -41,5 +41,10 @@ public class Turingband
             index = index - 1; 
         }
     }
+    
+    public String lesen()
+    {
+        return keller[index];
+    }
 }
 
