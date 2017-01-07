@@ -10,12 +10,13 @@ public class Turingband
     private ArrayList<String> keller;
     private String kellerzeichen= "#";
     private String eingabe;
+    private int index = 0;
     
             
     public Turingband()
     {
         keller = new ArrayList<String>();
-        keller.add(kellerzeichen);
+        keller.set(index, kellerzeichen);
     }
 
     public void zeichenHinzufuegen(String eingabe)
@@ -24,7 +25,7 @@ public class Turingband
         {
             if (eingabe.equals(dateien))
             {
-                keller.add(eingabe);
+                keller.set(index, eingabe);
             }
         }
     }
@@ -33,7 +34,11 @@ public class Turingband
     {
         if (richtung.toUpperCase().equals("R"))
         {
-//            keller.next();
+            index = index + 1;   
+        }
+        else if (richtung.toUpperCase().equals("L")) 
+        {
+            index = index - 1; 
         }
     }
 }
