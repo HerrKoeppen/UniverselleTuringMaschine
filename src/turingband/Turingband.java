@@ -2,8 +2,6 @@
 package turingband;
 
 import java.util.ArrayList;
-import java.io.*;
-import textgruppe.Texteinlesen;
 
 public class Turingband 
 {
@@ -14,14 +12,14 @@ public class Turingband
     private int index = 0;
     
             
-    public Turingband(String bandvorbelegungszeichen)
+    public Turingband(String bandvorbelegungszeichen)   //Konstruktor
     {
-        band = new ArrayList<String>();
-        band.set(index, bandvorbelegungszeichen);
-        kellerzeichen = bandvorbelegungszeichen;
+        band = new ArrayList<String>();                 //Erstellt eine ArrayList die das Turingband simuliert
+        band.set(index, bandvorbelegungszeichen);       //Füllt das mit dem Vorbelegungszeichen
+        kellerzeichen = bandvorbelegungszeichen;        
     }
 
-    public void zeichenHinzufuegen(String eingabe)
+    public void zeichenHinzufuegen(String eingabe)      //Speichert Zeichen gemäß dem Bandalphabeten ins Band an der Stelle "index"
     {        
         for (String zeichen : platzhalter.BA)
         {
@@ -29,12 +27,16 @@ public class Turingband
             {
                 band.set(index, eingabe);
             }
+            else
+            {
+                System.out.println("Error: Zeichen nicht im Bandalphabeten vorhanden!");
+            }
         }
     }
 
-    public void schreibkopfBewegen(String richtung)
+    public void schreibkopfBewegen(String richtung)     //Bewegt den Schreib-/Lesekopfkopf
     {
-        if (richtung.toUpperCase().equals("R"))
+        if (richtung.toUpperCase().equals("R"))         //Kopf wird nach rechts bzw. oben bewegt
         {
             index = index + 1;
             if (index == band.size())
@@ -42,11 +44,11 @@ public class Turingband
                 band.add(kellerzeichen);
             }
         }
-        else if (richtung.toUpperCase().equals("L")) 
+        else if (richtung.toUpperCase().equals("L"))    //Kopf wird nach links bzw. unten bewegt 
         {
             index = index - 1;
-            if (index == -1)
-            {
+            if (index == -1)                            //Verhindert ein OutOfBounce error durch das Erstellen einer neuen ArrayList, die 
+            {                                           //die nötige Größe hat und befüllt diese mit den Werten aus dem alten Band
                 neuesBand = new ArrayList<String>();
                 neuesBand.add(kellerzeichen);
                 for (String zeichen : band)
@@ -59,9 +61,8 @@ public class Turingband
         }
     }
     
-    public String lesen()
+    public String bandLesen()                           //Liest Zeichen aus dem Band an der Stelle "index" und übergibt diese weiter
     {
         return band.get(index);
     }
 }
-
