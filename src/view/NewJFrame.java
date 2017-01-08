@@ -5,6 +5,7 @@
  */
 package view;
 
+
  
 
 /**
@@ -39,8 +40,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextFieldTuring = new javax.swing.JTextField();
         jLabelWort = new javax.swing.JLabel();
         jLabelTuring = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaAusgabe1 = new javax.swing.JTextArea();
+        jLabelAusgabe1 = new javax.swing.JLabel();
 
-        jFrameFileChooser.setPreferredSize(new java.awt.Dimension(600, 500));
         jFrameFileChooser.setSize(new java.awt.Dimension(600, 500));
 
         javax.swing.GroupLayout jFrameFileChooserLayout = new javax.swing.GroupLayout(jFrameFileChooser.getContentPane());
@@ -89,6 +92,13 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabelTuring.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelTuring.setText("Folgende Datei gewählt:");
 
+        jTextAreaAusgabe1.setColumns(20);
+        jTextAreaAusgabe1.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaAusgabe1);
+
+        jLabelAusgabe1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelAusgabe1.setText("Ergebnis:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,15 +113,22 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addComponent(jTextFieldTuring, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelTuring)))
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelWort)
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabelAusgabe1)))
+                .addContainerGap(141, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(114, 114, 114)
                         .addComponent(EingabeB, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelWort))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(TextFeld1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,12 +141,17 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextFieldTuring, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(jLabelWort)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelWort)
+                    .addComponent(jLabelAusgabe1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TextFeld1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(EingabeB, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(TextFeld1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(EingabeB, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -140,6 +162,19 @@ public class NewJFrame extends javax.swing.JFrame {
         wort = TextFeld1.getText();
     }//GEN-LAST:event_EingabeBActionPerformed
 
+  private void ergebnisAusgeben(){
+//   if(/*Wort gehört nicht zum Eingabealphabet*/){
+//            ausgabe="Das Wort "+wort+" gehört nicht zum Eingabealphabet. Überprüfung nicht erfolgreich!";
+//   }
+//     else if(/*Rückgabewert von überprüfung false*/){
+//            ausgabe="Das Wort "+wort+" gehört nicht zur formalen Sprache. Überprüfung nicht erfolgreich!";
+//     }
+//        else{
+//            ausgabe="Das Wort "+wort+" gehört zur formalen Sprache. Überprüfung erfolgreich!";
+//        }
+     jTextAreaAusgabe1.setText(ausgabe);
+  }  
+   
     private void WahlTuringBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WahlTuringBActionPerformed
          jFileChooser1.showOpenDialog(null);
          
@@ -198,11 +233,15 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton WahlTuringB;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrameFileChooser;
+    private javax.swing.JLabel jLabelAusgabe1;
     private javax.swing.JLabel jLabelTuring;
     private javax.swing.JLabel jLabelWort;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextArea jTextAreaAusgabe1;
     private javax.swing.JTextField jTextFieldTuring;
     // End of variables declaration//GEN-END:variables
    //Eigene Variablen:
    public String wort;
    public String dateiPfad;
+   public String ausgabe;
 }
