@@ -76,7 +76,7 @@ public class Turingband
         }
     }
     
-    public String bandLesen()                           //Liest Zeichen aus dem Band an der Stelle "index" und übergibt diese weiter
+    public String bandLesen()                       //Liest Zeichen aus dem Band an der Stelle "index" und übergibt diese weiter
     {
         glSymbol = band.get(index);
         return glSymbol;
