@@ -5,6 +5,12 @@
  */
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
  
 
@@ -43,6 +49,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaAusgabe1 = new javax.swing.JTextArea();
         jLabelAusgabe1 = new javax.swing.JLabel();
+        jButtonStarten1 = new javax.swing.JButton();
 
         jFrameFileChooser.setSize(new java.awt.Dimension(600, 500));
 
@@ -99,6 +106,13 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabelAusgabe1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabelAusgabe1.setText("Ergebnis:");
 
+        jButtonStarten1.setText("Überprüfung starten");
+        jButtonStarten1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonStarten1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,52 +120,54 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(WahlTuringB)
-                        .addGap(27, 27, 27)
+                        .addGap(25, 25, 25)
+                        .addComponent(jButtonStarten1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTuring, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTuring)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelWort)
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabelAusgabe1)))
-                .addContainerGap(141, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(EingabeB, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(TextFeld1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelAusgabe1)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelWort)
+                                .addComponent(TextFeld1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EingabeB, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(WahlTuringB)
+                            .addGap(77, 77, 77)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelTuring)
+                                .addComponent(jTextFieldTuring, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(WahlTuringB, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelTuring)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldTuring, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelWort)
-                    .addComponent(jLabelAusgabe1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelWort)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TextFeld1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EingabeB, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(TextFeld1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelAusgabe1)
                         .addGap(18, 18, 18)
-                        .addComponent(EingabeB, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonStarten1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60))
         );
 
         pack();
@@ -162,28 +178,23 @@ public class NewJFrame extends javax.swing.JFrame {
         wort = TextFeld1.getText();
     }//GEN-LAST:event_EingabeBActionPerformed
 
-  private void ergebnisAusgeben(){
-//   if(/*Wort gehört nicht zum Eingabealphabet*/){
-//            ausgabe="Das Wort "+wort+" gehört nicht zum Eingabealphabet. Überprüfung nicht erfolgreich!";
+   
 //   }
 //     else if(/*Rückgabewert von überprüfung false*/){
-//            ausgabe="Das Wort "+wort+" gehört nicht zur formalen Sprache. Überprüfung nicht erfolgreich!";
+//            ausgabe="Das Wort "+wort+" gehört nicht zur formalen Sprache. \nÜberprüfung nicht erfolgreich!";
 //     }
 //        else{
-//            ausgabe="Das Wort "+wort+" gehört zur formalen Sprache. Überprüfung erfolgreich!";
+//            ausgabe="Das Wort "+wort+" gehört zur formalen Sprache. \nÜberprüfung erfolgreich!";
 //        }
-     jTextAreaAusgabe1.setText(ausgabe);
-  }  
    
     private void WahlTuringBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WahlTuringBActionPerformed
-         jFileChooser1.showOpenDialog(null);
+
          
          int rueckgabeWert = jFileChooser1.showOpenDialog(null);
          
          if(rueckgabeWert == jFileChooser1.APPROVE_OPTION)
          {
          dateiPfad = jFileChooser1.getSelectedFile().getAbsolutePath();
-        System.out.println(dateiPfad);
         jTextFieldTuring.setText(jFileChooser1.getSelectedFile().getName()) ;
          }
     }//GEN-LAST:event_WahlTuringBActionPerformed
@@ -191,6 +202,42 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jTextFieldTuringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTuringActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTuringActionPerformed
+
+    private void jButtonStarten1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStarten1ActionPerformed
+      if(dateiPfad==null) {
+        ausgabe="Keine Turingmaschine ausgewählt. \nÜberprüfung nicht möglich!"; 
+        jTextAreaAusgabe1.setText(ausgabe);
+        return;
+      }
+      else if(wort==null){
+         ausgabe="Kein Wort eingegeben. \nÜberprüfung nicht möglich!";
+         jTextAreaAusgabe1.setText(ausgabe);
+         return;
+      }
+      textgruppe.Texteinlesen e = new textgruppe.Texteinlesen();
+        try {
+            e.dateiEinlesen(dateiPfad);
+        } catch (IOException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        e.angabenInArraySpeichern();
+        turingband.Turingband t = new turingband.Turingband(wort);
+        
+        if(!e.wortUeberpruefen(wort)){
+            ausgabe="Das Wort "+wort+" gehört nicht zum Eingabealphabet. \nÜberprüfung nicht erfolgreich!";
+            jTextAreaAusgabe1.setText(ausgabe);
+            return;
+        }
+        uebergangsfunktion.uebergangsfunktion u = new uebergangsfunktion.uebergangsfunktion();
+        if(u.uebergang(/*Hashmap fehlt*/)){
+            ausgabe="Das Wort "+wort+" gehört zur formalen Sprache. \nÜberprüfung erfolgreich!";
+            jTextAreaAusgabe1.setText(ausgabe);
+        }
+        else{
+        ausgabe="Das Wort "+wort+" gehört nicht zur formalen Sprache. \nÜberprüfung nicht erfolgreich!";;
+        jTextAreaAusgabe1.setText(ausgabe);
+        }
+    }//GEN-LAST:event_jButtonStarten1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,15 +269,18 @@ public class NewJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
-            }
-        });
+                NewJFrame n = new NewJFrame();
+                n.setVisible(true);
+        }
+    
+            });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EingabeB;
     private javax.swing.JTextField TextFeld1;
     private javax.swing.JButton WahlTuringB;
+    public javax.swing.JButton jButtonStarten1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrameFileChooser;
     private javax.swing.JLabel jLabelAusgabe1;
@@ -244,4 +294,5 @@ public class NewJFrame extends javax.swing.JFrame {
    public String wort;
    public String dateiPfad;
    public String ausgabe;
-}
+
+}     
