@@ -23,16 +23,15 @@
         }
     private void uebergang(hashUebergang)
     {
-    	String zustand = anfangszustand;
     	while(laufen)
 	{
-                String schluessel = aktuellerZustand + "," + aktuellesBandsymbol;
+                String schluessel = aktuellerZustand + "," + bandLesen();
 		String uebergangAlleInformationen = hashUebergang.get(schluessel);
 		String[] uebergang = uebergangAlleInformationen.split(,);
 		String schrBandsymbol = uebergang[0];
-                schreiben(schrBandsymbol);
+                zeichenHinzufuegen(schrBandsymbol);
 		String kopfrichtung = uebergang[1];
-                kopfbewegung(kopfrichtung);
+                schreibkopfBewegen(kopfrichtung);
 		String neuerZustand = uebergang[2];
                 uebergangZustand(neuerZustand);
 	}	    
