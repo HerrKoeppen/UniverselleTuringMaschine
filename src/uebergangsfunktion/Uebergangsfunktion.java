@@ -18,7 +18,7 @@ import static turingband.Turingband.glSymbol;
  */
 public class Uebergangsfunktion {
     public String aktuellerZustand;
-    private final HashMap hashUebergang = new HashMap();
+    public final HashMap hashUebergang = new HashMap();
     private boolean laufen; 
 public Uebergangsfunktion()
 {
@@ -37,7 +37,7 @@ private void erzeugeHashmap()
             hashUebergang.put(part1,part2);
         }
     }
-private boolean uebergang(HashMap hashUebergang, turingband.Turingband t, textgruppe.Texteinlesen e)
+public boolean uebergang(HashMap hashUebergang, turingband.Turingband t, textgruppe.Texteinlesen e)
     {
     	while(laufen)
 	{
