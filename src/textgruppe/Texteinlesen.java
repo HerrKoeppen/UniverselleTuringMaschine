@@ -33,7 +33,7 @@ public class Texteinlesen {
         EW = new ArrayList();
     }
     
-    public static void dateiEinlesen(String dateipfad) throws IOException{
+    public void dateiEinlesen(String dateipfad) throws IOException{
         
         try {
             BufferedReader reader = new BufferedReader(new FileReader(dateipfad));
@@ -46,7 +46,7 @@ public class Texteinlesen {
         }
     }
     
-    public static void angabenInArraySpeichern(){
+    public void angabenInArraySpeichern(){
         tupelTeile = tupelGanz.split("/.../");    //tupelTeile ist ein Array in dem der ganze Tupel steht, aber die Angaben in jeweils einem Feld sind(Die 7 angaben sind noch nicht weiter unterteilt)
         for(int teile=0; teile<7; teile++){                
             String[] einzelAngabe = tupelTeile[teile].split(",");//die Angaben werden in einzelteile Unterteilt
@@ -106,17 +106,4 @@ public class Texteinlesen {
         return x;
     }
 
-public static void main(String[] args) throws IOException{
-    Texteinlesen texteinlesen = new Texteinlesen();
-    texteinlesen.dateiEinlesen("C:\\Users\\jonathan.brandt\\Desktop\\test.txt");    //muss mit korrektem Dateipfad übergeben werden
-    texteinlesen.angabenInArraySpeichern();
-    System.out.println(EA);
-    System.out.println(Z);
-    System.out.println(BA);
-    System.out.println(UF);
-    System.out.println(AZ);
-    System.out.println(BZ);
-    System.out.println(EZ);
-    texteinlesen.wortUeberpruefen("abce");
-}
 }
