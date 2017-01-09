@@ -92,15 +92,15 @@ public class Texteinlesen {
     public boolean wortUeberpruefen(String eingabewort){
         boolean x = false;
         for (int i=0; i<eingabewort.length(); i++){
+            boolean y = false;
             for(int z=0; z<EA.size(); z++){
                 if(eingabewort.charAt(i) == EA.get(z).charAt(0) ){
-                    x = true;
+                    y = true;
                     EW.add(String.valueOf(eingabewort.charAt(i)));
-                    break;
                 }
             }
-            if(x == false){
-                System.out.println("Das Wort und das Eingabealphabet stimmen nicht überein.");
+            if(y == false){
+                x = false;
             }
         }
         return x;
