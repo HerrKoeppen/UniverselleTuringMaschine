@@ -2,14 +2,17 @@
 package turingband;
 
 import java.util.ArrayList;
+import textgruppe.Texteinlesen;
 
 public class Turingband 
 {
     private ArrayList<String> neuesBand;
     private ArrayList<String> band;
+    public boolean finish = false;
     private String kellerzeichen;
     private String eingabe;
     private int index = 0;
+    static public String glSymbol;
     
             
     public Turingband(String bandvorbelegungszeichen)   //Konstruktor
@@ -20,8 +23,8 @@ public class Turingband
     }
 
     public void zeichenHinzufuegen(String eingabe)      //Speichert Zeichen gemäß dem Bandalphabeten ins Band an der Stelle "index"
-    {        
-        for (String zeichen : platzhalter.BA)
+    {   
+        for (String zeichen : Texteinlesen.BA)
         {
             if (eingabe.equals(zeichen))
             {
@@ -59,10 +62,23 @@ public class Turingband
                 band = neuesBand;
             }
         }
+        
+        for (String bandsymbole : band)
+        {
+            if (!bandsymbole.equals(kellerzeichen))
+            {
+                finish = false;
+            }
+            else
+            {
+                finish = true;
+            }
+        }
     }
     
     public String bandLesen()                           //Liest Zeichen aus dem Band an der Stelle "index" und übergibt diese weiter
     {
-        return band.get(index);
+        glSymbol = band.get(index);
+        return glSymbol;
     }
 }
