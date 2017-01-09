@@ -20,7 +20,7 @@ public class Texteinlesen {
     public static ArrayList<String> AZ;   //Anfangszustand
     public static ArrayList<String> BZ;   //Bandvorbelegungszeichen
     public static ArrayList<String> EZ;   //Menge der Endzustände
-    private String eingabewort;
+    public static ArrayList<String> EW;   //Eingabewort
     
     public Texteinlesen(){
         EA = new ArrayList();
@@ -30,6 +30,7 @@ public class Texteinlesen {
         AZ = new ArrayList();
         BZ = new ArrayList();
         EZ = new ArrayList();
+        EW = new ArrayList();
     }
     
     public static void dateiEinlesen(String dateipfad) throws IOException{
@@ -89,12 +90,20 @@ public class Texteinlesen {
     }
     
     public boolean wortUeberpruefen(String eingabewort){
+        boolean x = false;
         for (int i=0; i<eingabewort.length(); i++){
             for(int z=0; z<EA.size(); z++){
-               //if(charAt(i) == EA[z]) 
+                if(eingabewort.charAt(i) == EA.get(z).charAt(0) ){
+                    x = true;
+                    EW.add(String.valueOf(eingabewort.charAt(i)));
+                    break;
+                }
+            }
+            if(x == false){
+                System.out.println("Das Wort und das Eingabealphabet stimmen nicht überein.");
             }
         }
-        return true;
+        return x;
     }
 
 public static void main(String[] args) throws IOException{
@@ -108,5 +117,6 @@ public static void main(String[] args) throws IOException{
     System.out.println(AZ);
     System.out.println(BZ);
     System.out.println(EZ);
+    texteinlesen.wortUeberpruefen("abce");
 }
 }
