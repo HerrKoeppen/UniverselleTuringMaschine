@@ -2,42 +2,8 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JFrame" name="jFrameFileChooser">
-      <Properties>
-        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[600, 500]"/>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jFileChooser1" pref="576" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jFileChooser1" min="-2" pref="386" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JFileChooser" name="jFileChooser1">
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="WahlTuringB"/>
-            </Property>
-          </AccessibilityProperties>
-        </Component>
-      </SubComponents>
-    </Container>
+    <Component class="javax.swing.JFileChooser" name="jFileChooser1">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -76,19 +42,19 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelWort" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="TextFeld1" alignment="0" min="-2" pref="213" max="-2" attributes="0"/>
+                              <Component id="jLabelWort1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldWort1" alignment="0" min="-2" pref="213" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="EingabeB" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="jButtonEinlesen1" min="-2" pref="132" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="WahlTuringB" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonWaehlen1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelTuring" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldTuring" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="jLabelTuring1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldTuring1" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -102,21 +68,21 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="WahlTuringB" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="jButtonWaehlen1" min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="jLabelTuring" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTuring1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextFieldTuring" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldTuring1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jLabelWort" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelWort1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="TextFeld1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldWort1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="EingabeB" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="jButtonEinlesen1" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="63" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -133,30 +99,30 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="TextFeld1">
+    <Component class="javax.swing.JTextField" name="jTextFieldWort1">
     </Component>
-    <Component class="javax.swing.JButton" name="EingabeB">
+    <Component class="javax.swing.JButton" name="jButtonEinlesen1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Wort einlesen"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EingabeBActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEinlesen1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="WahlTuringB">
+    <Component class="javax.swing.JButton" name="jButtonWaehlen1">
       <Properties>
         <Property name="text" type="java.lang.String" value="W&#xe4;hle Turing-Maschine"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="WahlTuringBActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonWaehlen1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldTuring">
+    <Component class="javax.swing.JTextField" name="jTextFieldTuring1">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTuringActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTuring1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelWort">
+    <Component class="javax.swing.JLabel" name="jLabelWort1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
@@ -164,7 +130,7 @@
         <Property name="text" type="java.lang.String" value="Das einzulesende Wort eintragen:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelTuring">
+    <Component class="javax.swing.JLabel" name="jLabelTuring1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="0"/>
