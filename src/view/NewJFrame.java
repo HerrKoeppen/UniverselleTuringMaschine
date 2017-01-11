@@ -207,7 +207,7 @@ public class NewJFrame extends javax.swing.JFrame {
         e.angabenInArraySpeichern();
         turingband.Turingband t = new turingband.Turingband(wort);
         
-        if(!e.wortUeberpruefen(wort)){
+        if(!e.wortUeberpruefen(wort,t)){
             jTextAreaAusgabe1.setText(null);
             ausgabe="Das Wort "+wort+" gehört nicht zum Eingabealphabet. \nÜberprüfung nicht erfolgreich!";
             jTextAreaAusgabe1.setText(ausgabe);
