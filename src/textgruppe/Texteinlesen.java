@@ -94,7 +94,7 @@ public class Texteinlesen {
     }
     
     public boolean wortUeberpruefen(String eingabewort){
-        boolean x = false;
+        boolean x = true;
         for (int i=0; i<eingabewort.length(); i++){
             boolean y = false;
             for(int z=0; z<EA.size(); z++){
