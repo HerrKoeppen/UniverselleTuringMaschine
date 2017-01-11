@@ -96,30 +96,32 @@ public class NewJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelWort1)
+                    .addComponent(jTextFieldWort1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonEinlesen1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jButtonWaehlen1)
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTuring1)
+                    .addComponent(jTextFieldTuring1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jButtonStarten1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jButtonStarten1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelAusgabe1)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelWort1)
-                                .addComponent(jTextFieldWort1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEinlesen1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(jButtonWaehlen1)
-                            .addGap(77, 77, 77)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelTuring1)
-                                .addComponent(jTextFieldTuring1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addComponent(jLabelAusgabe1)
+                        .addGap(147, 147, 147))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,6 +157,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButtonEinlesen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEinlesen1ActionPerformed
 
         wort = jTextFieldWort1.getText(); //Einzulesendes Wort
+        jTextAreaAusgabe1.setText(null);
+        ausgabe="Das Wort "+wort+" wurde eingelesen.";
+            jTextAreaAusgabe1.setText(ausgabe);
+        
     }//GEN-LAST:event_jButtonEinlesen1ActionPerformed
 
    //JFileChooser öffnen, um Datei auswählen zu können
@@ -166,6 +172,7 @@ public class NewJFrame extends javax.swing.JFrame {
          {
          dateiPfad = jFileChooser1.getSelectedFile().getAbsolutePath(); //Dateipfad
         jTextFieldTuring1.setText(jFileChooser1.getSelectedFile().getName()) ; //Dateiname
+        
          }
     }//GEN-LAST:event_jButtonWaehlen1ActionPerformed
 
@@ -176,6 +183,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     //Unsere eigentliche Main-Funktion:
     private void jButtonStarten1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStarten1ActionPerformed
+        jTextAreaAusgabe1.setText(null);
       if(dateiPfad==null) {
         //Fehlermeldung ausgebn, wenn keine Datei ausgewählt wurde 
         ausgabe="Keine Turingmaschine ausgewählt. \nÜberprüfung nicht möglich!"; 
@@ -188,6 +196,8 @@ public class NewJFrame extends javax.swing.JFrame {
          jTextAreaAusgabe1.setText(ausgabe);
          return;
       }
+      jTextAreaAusgabe1.setText(null);
+      ausgabe="Es wird überprüft...";
       textgruppe.Texteinlesen e = new textgruppe.Texteinlesen();
         try {
             e.dateiEinlesen(dateiPfad);
@@ -198,16 +208,19 @@ public class NewJFrame extends javax.swing.JFrame {
         turingband.Turingband t = new turingband.Turingband(wort);
         
         if(!e.wortUeberpruefen(wort)){
+            jTextAreaAusgabe1.setText(null);
             ausgabe="Das Wort "+wort+" gehört nicht zum Eingabealphabet. \nÜberprüfung nicht erfolgreich!";
             jTextAreaAusgabe1.setText(ausgabe);
             return;
         }
         uebergangsfunktion.Uebergangsfunktion u = new uebergangsfunktion.Uebergangsfunktion();
         if(u.uebergang(u.hashUebergang, t, e)){
+            jTextAreaAusgabe1.setText(null);
             ausgabe="Das Wort "+wort+" gehört zur formalen Sprache. \nÜberprüfung erfolgreich!";
             jTextAreaAusgabe1.setText(ausgabe);
         }
         else{
+        jTextAreaAusgabe1.setText(null);
         ausgabe="Das Wort "+wort+" gehört nicht zur formalen Sprache. \nÜberprüfung nicht erfolgreich!";;
         jTextAreaAusgabe1.setText(ausgabe);
         }
