@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 
 public class Texteinlesen {
+    public static boolean eingabePositiv;
     private static String tupelGanz;
     private static String[] tupelTeile;
     public static ArrayList<String> EA;   //Eingabealphabet
@@ -23,6 +24,7 @@ public class Texteinlesen {
     public static ArrayList<String> EW;   //Eingabewort
     
     public Texteinlesen(){
+        eingabePositiv = false;
         EA = new ArrayList();
         Z = new ArrayList();
         BA = new ArrayList();
@@ -93,7 +95,7 @@ public class Texteinlesen {
         
     }
     
-    public boolean wortUeberpruefen(String eingabewort, turingband.Turingband t){
+    public void wortUeberpruefen(String eingabewort, turingband.Turingband t){
         boolean x = true;
         for (int i=0; i<eingabewort.length(); i++){
             boolean y = false;
@@ -107,7 +109,9 @@ public class Texteinlesen {
                 x = false;
             }
         }
-        return x;
+        if(x == true){
+            eingabePositiv = true;   
+        }
     }
 
 }
