@@ -11,17 +11,20 @@ import java.util.ArrayList;
 
 
 public class Texteinlesen {
-    static String tupelGanz;
-    static String[] tupelTeile;
-    static ArrayList<String> EA;   //Eingabealphabet
-    static ArrayList<String> Z;    //Zustandsmenge
-    static ArrayList<String> BA;   //Bandalphabet
-    static ArrayList<String> UF;    //partielle Überführungsfunktion
-    static ArrayList<String> AZ;   //Anfangszustand
-    static ArrayList<String> BZ;   //Bandvorbelegungszeichen
-    static ArrayList<String> EZ;   //Menge der Endzustände
+    public static boolean eingabePositiv;
+    private static String tupelGanz;
+    private static String[] tupelTeile;
+    public static ArrayList<String> EA;   //Eingabealphabet
+    public static ArrayList<String> Z;    //Zustandsmenge
+    public static ArrayList<String> BA;   //Bandalphabet
+    public static ArrayList<String> UF;   //partielle Überführungsfunktion
+    public static ArrayList<String> AZ;   //Anfangszustand
+    public static ArrayList<String> BZ;   //Bandvorbelegungszeichen
+    public static ArrayList<String> EZ;   //Menge der Endzustände
+    public static ArrayList<String> EW;   //Eingabewort
     
     public Texteinlesen(){
+        eingabePositiv = false;
         EA = new ArrayList();
         Z = new ArrayList();
         BA = new ArrayList();
@@ -29,9 +32,10 @@ public class Texteinlesen {
         AZ = new ArrayList();
         BZ = new ArrayList();
         EZ = new ArrayList();
+        EW = new ArrayList();
     }
     
-    public static void dateiEinlesen(String dateipfad) throws IOException{
+    public void dateiEinlesen(String dateipfad) throws IOException{
         
         try {
             BufferedReader reader = new BufferedReader(new FileReader(dateipfad));
@@ -44,49 +48,70 @@ public class Texteinlesen {
         }
     }
     
-    public static void angabenInArraySpeichern(){
+    public void angabenInArraySpeichern(){
         tupelTeile = tupelGanz.split("/.../");    //tupelTeile ist ein Array in dem der ganze Tupel steht, aber die Angaben in jeweils einem Feld sind(Die 7 angaben sind noch nicht weiter unterteilt)
+        String[] ufTeile = tupelTeile[3].split("/./");
+        for(int z=0; z<ufTeile.length; z++){
+            UF.add(ufTeile[z]);
+        }
         for(int teile=0; teile<7; teile++){                
             String[] einzelAngabe = tupelTeile[teile].split(",");//die Angaben werden in einzelteile Unterteilt
             for (int i=0; i<einzelAngabe.length; i++){           //die Angaben werden in die jeweiligen Arrays "gepackt"
-                if(teile==0){                                    //sobald Problem geöst können die Verzweigungen in switch umgewandelt werden können                 
-                    EA.add(einzelAngabe[i]);
-                } 
-                else if(teile==1){
-                    Z.add(einzelAngabe[i]);
-                }
-                else if(teile==2){
-                    BA.add(einzelAngabe[i]);
-                }
-                else if(teile==3){
-                    UF.add(einzelAngabe[i]);
-                }
-                else if(teile==4){
-                     AZ.add(einzelAngabe[i]);
-                }
-                else if(teile==5){
-                    BZ.add(einzelAngabe[i]);
-                }
-                else if(teile==6){
-                     EZ.add(einzelAngabe[i]);
-                }
-                else{
-                    System.out.println("FEHLER!!!!!!!!");    
+                switch (teile) {
+                    case 0:
+                        //sobald Problem geöst können die Verzweigungen in switch umgewandelt werden können
+                        EA.add(einzelAngabe[i]);
+                        break;
+                        
+                    case 1:
+                        Z.add(einzelAngabe[i]);
+                        break;
+                        
+                    case 2:
+                        BA.add(einzelAngabe[i]);
+                        break;
+                        
+                   case 3:
+                      break;
+                        
+                    case 4:
+                        AZ.add(einzelAngabe[i]);
+                        break;
+                        
+                    case 5:
+                        BZ.add(einzelAngabe[i]);
+                        break;
+                        
+                    case 6:
+                        EZ.add(einzelAngabe[i]);
+                        break; 
+                        
+                    default:
+                        System.out.println("FEHLER!!!!!!!!");
+                        break;
                 }
             }
         }
+        
+    }
+    
+    public void wortUeberpruefen(String eingabewort, turingband.Turingband t){
+        boolean x = true;
+        for (int i=0; i<eingabewort.length(); i++){
+            boolean y = false;
+            for(int z=0; z<EA.size(); z++){
+                if(eingabewort.charAt(i) == EA.get(z).charAt(0) ){
+                    y = true;
+                    t.zeichenHinzufuegen(String.valueOf(eingabewort.charAt(i)));
+                }
+            }
+            if(y == false){
+                x = false;
+            }
+        }
+        if(x == true){
+            eingabePositiv = true;   
+        }
     }
 
-public static void main(String[] args) throws IOException{
-    Texteinlesen texteinlesen = new Texteinlesen();
-    texteinlesen.dateiEinlesen("C:\\Users\\Jonathan\\Desktop\\test.txt");    //muss mit korrektem Dateipfad übergeben werden
-    texteinlesen.angabenInArraySpeichern();
-    System.out.println(EA);
-    System.out.println(Z);
-    System.out.println(BA);
-    System.out.println(UF);
-    System.out.println(AZ);
-    System.out.println(BZ);
-    System.out.println(EZ);
-}
 }
