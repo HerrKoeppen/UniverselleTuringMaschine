@@ -48,6 +48,10 @@ public class Texteinlesen {
     
     public void angabenInArraySpeichern(){
         tupelTeile = tupelGanz.split("/.../");    //tupelTeile ist ein Array in dem der ganze Tupel steht, aber die Angaben in jeweils einem Feld sind(Die 7 angaben sind noch nicht weiter unterteilt)
+        String[] ufTeile = tupelTeile[3].split("/./");
+        for(int z=0; z<ufTeile.length; z++){
+            UF.add(ufTeile[z]);
+        }
         for(int teile=0; teile<7; teile++){                
             String[] einzelAngabe = tupelTeile[teile].split(",");//die Angaben werden in einzelteile Unterteilt
             for (int i=0; i<einzelAngabe.length; i++){           //die Angaben werden in die jeweiligen Arrays "gepackt"
@@ -65,9 +69,8 @@ public class Texteinlesen {
                         BA.add(einzelAngabe[i]);
                         break;
                         
-                    case 3:
-                        UF.add(einzelAngabe[i]);
-                        break;
+                   case 3:
+                      break;
                         
                     case 4:
                         AZ.add(einzelAngabe[i]);
@@ -87,10 +90,11 @@ public class Texteinlesen {
                 }
             }
         }
+        
     }
     
     public boolean wortUeberpruefen(String eingabewort){
-        boolean x = false;
+        boolean x = true;
         for (int i=0; i<eingabewort.length(); i++){
             boolean y = false;
             for(int z=0; z<EA.size(); z++){
