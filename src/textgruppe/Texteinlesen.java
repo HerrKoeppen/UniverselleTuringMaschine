@@ -11,17 +11,17 @@ import java.util.ArrayList;
 
 
 public class Texteinlesen {
-    public static boolean eingabePositiv;
-    private static String tupelGanz;
-    private static String[] tupelTeile;
-    public static ArrayList<String> EA;   //Eingabealphabet
-    public static ArrayList<String> Z;    //Zustandsmenge
-    public static ArrayList<String> BA;   //Bandalphabet
-    public static ArrayList<String> UF;   //partielle Überführungsfunktion
-    public static ArrayList<String> AZ;   //Anfangszustand
-    public static ArrayList<String> BZ;   //Bandvorbelegungszeichen
-    public static ArrayList<String> EZ;   //Menge der Endzustände
-    public static ArrayList<String> EW;   //Eingabewort
+    public boolean eingabePositiv;
+    private String tupelGanz;
+    private String[] tupelTeile;
+    public ArrayList<String> EA;   //Eingabealphabet
+    public ArrayList<String> Z;    //Zustandsmenge
+    public ArrayList<String> BA;   //Bandalphabet
+    public ArrayList<String> UF;   //partielle Überführungsfunktion
+    public ArrayList<String> AZ;   //Anfangszustand
+    public ArrayList<String> BZ;   //Bandvorbelegungszeichen
+    public ArrayList<String> EZ;   //Menge der Endzustände
+    public ArrayList<String> EW;   //Eingabewort
     
     public Texteinlesen(){
         eingabePositiv = false;
