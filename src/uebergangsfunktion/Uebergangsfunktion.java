@@ -27,7 +27,7 @@ public Uebergangsfunktion(textgruppe.Texteinlesen e)
     aktuellerZustand = e.AZ.get(0);
     laufen = true;
 }
-private void erzeugeHashmap()
+public void erzeugeHashmap()
     {
         Iterator<String> it = e.UF.iterator();
         while(it.hasNext())
