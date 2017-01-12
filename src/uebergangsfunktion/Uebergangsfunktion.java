@@ -34,7 +34,7 @@ public void erzeugeHashmap()
         while(it.hasNext())
         {
             String uebergangsfunktion = it.next();
-            String[] parts = uebergangsfunktion.split("|");
+            String[] parts = uebergangsfunktion.split("/,,/");
             String part1 = parts[0];
             String part2 = parts[1];
             hashUebergang.put(part1,part2);
