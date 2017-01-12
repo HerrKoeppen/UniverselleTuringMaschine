@@ -49,7 +49,7 @@ public boolean uebergang(HashMap hashUebergang, turingband.Turingband t, textgru
 		String uebergangAlleInformationen = (String) hashUebergang.get(schluessel);
                 String[] uebergang = uebergangAlleInformationen.split(",");
 		String eingabe = uebergang[0];
-                t.zeichenHinzufuegen(eingabe);
+                t.zeichenSetzen(eingabe);
 		String richtung = uebergang[1];
                 t.schreibkopfBewegen(richtung);
 		String neuerZustand = uebergang[2];

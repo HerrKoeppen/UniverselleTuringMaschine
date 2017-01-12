@@ -24,18 +24,37 @@ public class Turingband
         this.e=e;
     }
 
-    public void zeichenHinzufuegen(String eingabe)      //Speichert Zeichen gemäß dem Bandalphabeten ins Band an der Stelle "index"
-    {   
+    public void zeichenSetzen(String eingabe)      //Speichert Zeichen gemäß dem Bandalphabeten ins Band an der Stelle "index"
+    {
+        boolean accepted = false;
         for (String zeichen : e.BA)
         {
             if (eingabe.equals(zeichen))
             {
-                band.set(index, eingabe);
+                band.set(this.index, eingabe);
+                accepted=true;
             }
-            else
+        }
+        if(!accepted)
+        {
+            System.out.println("Error: Zeichen nicht im Bandalphabeten vorhanden!");
+        }
+    }
+    
+    public void zeichenHinzufuegen(String eingabe)
+    {
+        boolean accepted = false;
+        for (String zeichen : e.BA)
+        {
+            if (eingabe.equals(zeichen))
             {
-                System.out.println("Error: Zeichen nicht im Bandalphabeten vorhanden!");
+                band.add(eingabe);
+                accepted=true;
             }
+        }
+        if(!accepted)
+        {
+            System.out.println("Error: Zeichen nicht im Bandalphabeten vorhanden!");
         }
     }
 
@@ -64,16 +83,12 @@ public class Turingband
                 band = neuesBand;
             }
         }
-        
+        finish = true;
         for (String bandsymbole : band)
         {
             if (!bandsymbole.equals(kellerzeichen))
             {
                 finish = false;
-            }
-            else
-            {
-                finish = true;
             }
         }
     }
