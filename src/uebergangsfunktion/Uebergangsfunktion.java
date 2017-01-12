@@ -42,6 +42,8 @@ public void erzeugeHashmap()
     }
 public boolean uebergang(HashMap hashUebergang, turingband.Turingband t, textgruppe.Texteinlesen e)
     {
+        try
+        {
     	while(laufen)
 	{
                 
@@ -59,12 +61,16 @@ public boolean uebergang(HashMap hashUebergang, turingband.Turingband t, textgru
                     laufen=false;
                 }
 	}
-        if(aktuellerZustand.equals(e.EZ.get(0))){
+        }
+        catch(NullPointerException nullpoint){
+            System.err.println("Angegebene Turing-Maschine nicht deterministisch.");
+            return false;
+        }
+                if(aktuellerZustand.equals(e.EZ.get(0))){
             return true;
         }
         else{
              return false;
         }
-        }
     }
- 
+}
