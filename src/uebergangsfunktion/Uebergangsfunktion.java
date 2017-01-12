@@ -26,6 +26,7 @@ public Uebergangsfunktion(textgruppe.Texteinlesen e)
     this.e=e;
     aktuellerZustand = e.AZ.get(0);
     laufen = true;
+    this.erzeugeHashmap();
 }
 public void erzeugeHashmap()
     {
