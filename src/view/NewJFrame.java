@@ -205,15 +205,15 @@ public class NewJFrame extends javax.swing.JFrame {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         e.angabenInArraySpeichern();
-        turingband.Turingband t = new turingband.Turingband(wort);
-        
-        if(!e.wortUeberpruefen(wort,t)){
+        turingband.Turingband t = new turingband.Turingband(wort,e);
+        e.wortUeberpruefen(wort, t);
+        if(!e.eingabePositiv){
             jTextAreaAusgabe1.setText(null);
             ausgabe="Das Wort "+wort+" gehört nicht zum Eingabealphabet. \nÜberprüfung nicht erfolgreich!";
             jTextAreaAusgabe1.setText(ausgabe);
             return;
         }
-        uebergangsfunktion.Uebergangsfunktion u = new uebergangsfunktion.Uebergangsfunktion();
+        uebergangsfunktion.Uebergangsfunktion u = new uebergangsfunktion.Uebergangsfunktion(e);
         if(u.uebergang(u.hashUebergang, t, e)){
             jTextAreaAusgabe1.setText(null);
             ausgabe="Das Wort "+wort+" gehört zur formalen Sprache. \nÜberprüfung erfolgreich!";

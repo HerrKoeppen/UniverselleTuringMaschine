@@ -12,19 +12,21 @@ public class Turingband
     private String kellerzeichen;
     private String eingabe;
     private int index = 0;
-    static public String glSymbol;
+    private textgruppe.Texteinlesen e;
+    
     
             
-    public Turingband(String bandvorbelegungszeichen)   //Konstruktor
+    public Turingband(String bandvorbelegungszeichen, textgruppe.Texteinlesen e)   //Konstruktor
     {
         band = new ArrayList<String>();                 //Erstellt eine ArrayList die das Turingband simuliert
         band.set(index, bandvorbelegungszeichen);       //Füllt das mit dem Vorbelegungszeichen
-        kellerzeichen = bandvorbelegungszeichen;        
+        kellerzeichen = bandvorbelegungszeichen;
+        this.e=e;
     }
 
     public void zeichenHinzufuegen(String eingabe)      //Speichert Zeichen gemäß dem Bandalphabeten ins Band an der Stelle "index"
     {   
-        for (String zeichen : Texteinlesen.BA)
+        for (String zeichen : e.BA)
         {
             if (eingabe.equals(zeichen))
             {
@@ -78,7 +80,6 @@ public class Turingband
     
     public String bandLesen()                       //Liest Zeichen aus dem Band an der Stelle "index" und übergibt diese weiter
     {
-        glSymbol = band.get(index);
-        return glSymbol;
+        return band.get(index);
     }
 }

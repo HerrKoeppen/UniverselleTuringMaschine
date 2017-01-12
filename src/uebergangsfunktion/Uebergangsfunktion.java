@@ -18,15 +18,18 @@ import java.util.Iterator;
 public class Uebergangsfunktion {
     public String aktuellerZustand;
     public final HashMap hashUebergang = new HashMap();
-    private boolean laufen; 
-public Uebergangsfunktion()
+    private boolean laufen;
+    private textgruppe.Texteinlesen e;
+    
+public Uebergangsfunktion(textgruppe.Texteinlesen e)
 {
-    aktuellerZustand = textgruppe.Texteinlesen.AZ.get(0);
+    this.e=e;
+    aktuellerZustand = e.AZ.get(0);
     laufen = true;
 }
 private void erzeugeHashmap()
     {
-        Iterator<String> it = textgruppe.Texteinlesen.UF.iterator();
+        Iterator<String> it = e.UF.iterator();
         while(it.hasNext())
         {
             String uebergangsfunktion = it.next();
@@ -41,7 +44,7 @@ public boolean uebergang(HashMap hashUebergang, turingband.Turingband t, textgru
     	while(laufen)
 	{
                 
-                String schluessel = aktuellerZustand + "," + t.glSymbol;
+                String schluessel = aktuellerZustand + "," + t.bandLesen();
 		String uebergangAlleInformationen = (String) hashUebergang.get(schluessel);
                 String[] uebergang = uebergangAlleInformationen.split(",");
 		String eingabe = uebergang[0];
