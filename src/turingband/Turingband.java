@@ -16,11 +16,10 @@ public class Turingband
     
     
             
-    public Turingband(String bandvorbelegungszeichen, textgruppe.Texteinlesen e)   //Konstruktor
+    public Turingband(textgruppe.Texteinlesen e)   //Konstruktor
     {
         band = new ArrayList<String>();                 //Erstellt eine ArrayList die das Turingband simuliert
-        band.set(index, bandvorbelegungszeichen);       //Füllt das mit dem Vorbelegungszeichen
-        kellerzeichen = bandvorbelegungszeichen;
+        kellerzeichen = e.BZ.get(0);
         this.e=e;
     }
 
