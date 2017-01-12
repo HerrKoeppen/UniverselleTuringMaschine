@@ -214,6 +214,7 @@ public class NewJFrame extends javax.swing.JFrame {
             return;
         }
         uebergangsfunktion.Uebergangsfunktion u = new uebergangsfunktion.Uebergangsfunktion();
+        u.erzeugeHashmap();
         if(u.uebergang(u.hashUebergang, t, e)){
             jTextAreaAusgabe1.setText(null);
             ausgabe="Das Wort "+wort+" gehört zur formalen Sprache. \nÜberprüfung erfolgreich!";
