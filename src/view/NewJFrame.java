@@ -205,7 +205,7 @@ public class NewJFrame extends javax.swing.JFrame {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         e.angabenInArraySpeichern();
-        turingband.Turingband t = new turingband.Turingband(wort,e);
+        turingband.Turingband t = new turingband.Turingband(e);
         e.wortUeberpruefen(wort, t);
         if(!e.eingabePositiv){
             jTextAreaAusgabe1.setText(null);
